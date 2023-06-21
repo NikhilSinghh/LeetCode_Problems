@@ -1,0 +1,20 @@
+class Solution {
+public:
+    string interpret(string command) {
+        string ans;
+        for(int i=0; i<command.size()-1; i++)
+        {
+            if(command[i]=='(' && command[i+1]==')')
+            {
+                    ans=ans+'o';
+                    i=i++;
+            }
+            else if(command[i]=='(' || command[i]==')' );
+            else ans=ans+command[i];
+
+        }
+        if(command[command.size()-1] != ')')
+        ans=ans+command[command.size()-1];
+        return ans;
+    }
+};
