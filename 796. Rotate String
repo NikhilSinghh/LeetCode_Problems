@@ -1,0 +1,23 @@
+class Solution {
+public:
+string rotate(string &goal)
+{
+    int t=goal[0];
+    for(int i=1; i<goal.length(); i++)
+    {
+        goal[i-1]=goal[i];
+    }
+    goal[goal.length()-1]=t;
+    return goal;
+}
+    bool rotateString(string s, string goal) {
+       
+        for(int i=0; i<goal.length(); i++)
+        {
+            if(rotate(goal)==s)
+            return true;
+        }
+        return false;
+        
+    }
+};
