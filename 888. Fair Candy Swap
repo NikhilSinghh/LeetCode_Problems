@@ -1,0 +1,45 @@
+
+
+
+
+
+
+
+
+// Brute Foce with N^3 Comlexity
+
+class Solution {
+public:
+int sum(vector<int>& a) {
+    int s=0;
+    for(int i=0; i<a.size(); i++)
+    s+=a[i];
+
+    return s; 
+}
+    vector<int> fairCandySwap(vector<int>& aliceSizes, vector<int>& bobSizes) {
+        vector<int> ans;
+           
+        for(int i=0; i<aliceSizes.size(); i++)
+         { 
+            for(int j=0; j<bobSizes.size(); j++)
+            {
+              swap(aliceSizes[i],bobSizes[j]);
+              if(sum(aliceSizes) == sum(bobSizes))
+              {
+                    ans.push_back(bobSizes[j]);
+                    ans.push_back(aliceSizes[i]);
+                    return ans;
+              }
+              else 
+               swap(aliceSizes[i],bobSizes[j]);
+        }
+
+          }
+
+          return ans;
+}
+};
+
+
+
