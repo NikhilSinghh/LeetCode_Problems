@@ -1,0 +1,29 @@
+class Solution {
+public:
+    vector<int> findColumnWidth(vector<vector<int>>& grid) {
+        vector<int> ans;
+
+        for (int i = 0; i < grid[0].size(); i++) {
+            int count = 0;
+            int max = 0;
+            for (int j = 0; j < grid.size(); j++) {  
+                if (grid[j][i] < 0) {
+                    count++;
+                }
+               long long int t = grid[j][i];
+               if(t==0) count++;
+               else
+                while (t) {
+                    count++;
+                    t = t / 10;
+                }
+                if (count > max) {
+                    max = count;
+                }
+                count=0;
+            }
+            ans.push_back(max);
+        }
+        return ans;
+    }
+};
