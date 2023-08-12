@@ -1,0 +1,29 @@
+class Solution {
+public:
+    vector<int> sumEvenAfterQueries(vector<int>& nums, vector<vector<int>>& queries) {
+
+        int sum=0;
+        for(auto x: nums)
+        {
+          sum += (x % 2 == 0) ? x : 0;
+        }
+
+    vector<int> ans;
+        for(auto x: queries)
+        {
+            int index = x[1];
+            int value = x[0];
+
+            if(nums[index]%2 == 0)
+                sum-=nums[index];
+
+            nums[index]+=value;
+
+            if(nums[index]%2 == 0)
+                sum+=nums[index];
+
+            ans.push_back(sum);
+        }
+        return ans;
+    }
+};
